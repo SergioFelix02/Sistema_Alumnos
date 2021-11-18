@@ -1,7 +1,7 @@
 
 package sistema_alumnos;
 import javax.swing.JOptionPane;
-import java.sql.*;
+import java.sql.*;a
 
 public class Sistema_Alumnos extends MyConnection{
     ResultSet rs;
