@@ -19,7 +19,7 @@ public class Sistema_Alumnos extends MyConnection {
 
     public static void main(String[] args) {
         LoginUI Login = new LoginUI();
-        Login.show();
+        Login.setVisible(true);
     }
 
     public void Insertar(String nombre, int campus_id, int estatus) {

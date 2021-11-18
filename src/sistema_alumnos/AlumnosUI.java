@@ -11,8 +11,6 @@ public class AlumnosUI extends javax.swing.JFrame {
     public AlumnosUI() {
         initComponents();
     }
-
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,7 +125,7 @@ public class AlumnosUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
-        InsertarA.show();
+        InsertarA.setVisible(true);
         Modificar.setVisible(false);
         Desactivar.setVisible(false);
         InsertarC.setVisible(false);
@@ -144,25 +142,25 @@ public class AlumnosUI extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem7ActionPerformed
         this.setVisible(false);
         LoginUI Login = new LoginUI();
-        Login.show();
+        Login.setVisible(true);
     }// GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
-        Modificar.show();
+        Modificar.setVisible(true);
         InsertarA.setVisible(false);
         Desactivar.setVisible(false);
         InsertarC.setVisible(false);
     }// GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem3ActionPerformed
-        Desactivar.show();
+        Desactivar.setVisible(true);
         Modificar.setVisible(false);
         InsertarA.setVisible(false);
         InsertarC.setVisible(false);
     }// GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem6ActionPerformed
-        InsertarC.show();
+        InsertarC.setVisible(true);
         Modificar.setVisible(false);
         Desactivar.setVisible(false);
         InsertarA.setVisible(false);
