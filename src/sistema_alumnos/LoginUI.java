@@ -77,8 +77,8 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String user = txtUser.getText().trim();
-        String pass = txtPassword.getText().trim();
+        //String user = txtUser.getText().trim();
+        //String pass = txtPassword.getText().trim();
         AlumnosUI Interfaz = new AlumnosUI();
         Interfaz.setVisible(true);
         this.setVisible(false);

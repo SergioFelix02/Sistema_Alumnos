@@ -68,10 +68,10 @@ public class Sistema_Alumnos extends MyConnection {
     }
 
     public void BuscarA(int id) {
-        String nombre = "";
-        int campus_id = 0;
-        int estatus = 0;
         try {
+            String nombre = "";
+            int campus_id = 0;
+            int estatus = 0;
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
             pst.setInt(1, id);
             rs = pst.executeQuery();

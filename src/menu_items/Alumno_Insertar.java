@@ -134,7 +134,7 @@ public class Alumno_Insertar extends javax.swing.JFrame {
                 else{
                     estatus = 0;
                 }
-                cn.Insertar(nombre, campus_id, estatus); 
+                cn.Insertar(nombre, campus_id, estatus);
                 JOptionPane.showMessageDialog(null, "Alumno Registrado Correctamente!");
             }
         }catch(Exception e){
