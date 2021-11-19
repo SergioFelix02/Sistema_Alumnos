@@ -11,8 +11,8 @@ public class MyConnection {
     public static Connection getConnection() {
         String connectionUrl = "jdbc:sqlserver://localhost:1433;"
             + "database=bdSistema;"
-            + "user=magdiel;"
-            + "password=E5C7K10fl7Xu;"
+            + "user=SA;"
+            + "password=Safp270602;"
             + "loginTimeout=30;";
         try {
             Connection cn = DriverManager.getConnection(connectionUrl);
