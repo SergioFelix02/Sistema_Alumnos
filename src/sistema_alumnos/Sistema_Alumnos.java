@@ -60,12 +60,13 @@ public class Sistema_Alumnos extends MyConnection {
         try {
             CallableStatement cst = cn.prepareCall("{call CampusInsertar(?)}");
             cst.setString(1, nombre);
-            rs = cst.executeQuery();
+            boolean r = cst.execute();
+            //rs = cst.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    
     public void BuscarA(int id) {
         try {
             String nombre = "";
@@ -86,7 +87,7 @@ public class Sistema_Alumnos extends MyConnection {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    
     public void BuscarC(int id) {
         String nombre = "";
         int campus_id = 0;
@@ -110,7 +111,6 @@ public class Sistema_Alumnos extends MyConnection {
     //No funciona xd
     public void AlumnosActiveGetSelect() {
         try {
-         
             CallableStatement cst = cn.prepareCall("{call AlumnosActiveGetSelect}");
             String cadena = cst.getString(null);
             System.out.println(cadena);

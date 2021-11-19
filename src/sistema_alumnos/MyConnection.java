@@ -1,4 +1,3 @@
-
 package sistema_alumnos;
 
 import java.sql.*;
@@ -11,8 +10,8 @@ public class MyConnection {
     public static Connection getConnection() {
         String connectionUrl = "jdbc:sqlserver://localhost:1433;"
             + "database=bdSistema;"
-            + "user=SA;"
-            + "password=Safp270602;"
+            + "user=magdiel;"
+            + "password=E5C7K10fl7Xu;"
             + "loginTimeout=30;";
         try {
             Connection cn = DriverManager.getConnection(connectionUrl);
