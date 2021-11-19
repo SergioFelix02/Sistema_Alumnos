@@ -82,7 +82,6 @@ public class Sistema_Alumnos extends MyConnection {
             } else {
                 foundA = false;
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -103,6 +102,31 @@ public class Sistema_Alumnos extends MyConnection {
                 foundC = false;
             }
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    //No funciona xd
+    public void AlumnosActiveGetSelect() {
+        try {
+         
+            CallableStatement cst = cn.prepareCall("{call AlumnosActiveGetSelect}");
+            String cadena = cst.getString(null);
+            System.out.println(cadena);
+            rs = cst.executeQuery();
+            int id = rs.getInt("id");
+            String nombre = rs.getString("nombre");
+            int campus_id = rs.getInt("id");
+            String date = (rs.getDate("fechaCreacion")).toString();
+            int estatus = rs.getInt("estatus");
+            
+            System.out.println(id);
+            System.out.println(nombre);
+            System.out.println(campus_id);
+            System.out.println(date);
+            System.out.println(estatus);
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

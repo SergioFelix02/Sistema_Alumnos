@@ -19,7 +19,6 @@ public class MyConnection {
             return cn;
         } catch(SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-            //System.out.println(e.toString());
             return null;
         }
     }

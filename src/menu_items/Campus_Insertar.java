@@ -9,8 +9,9 @@ public class Campus_Insertar extends javax.swing.JFrame {
     public Campus_Insertar() {
         initComponents();
     }
-
-    // Inicializar Componentes
+    
+    //Inicializar Componentes - No Modificar
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         btnCerrar = new javax.swing.JButton();
@@ -79,14 +80,13 @@ public class Campus_Insertar extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// Fin Inicializar Componentes
-
-    //Boton Cerrar
+    }// </editor-fold>//GEN-END:initComponents
+    //Fin Inicializar Componentes
+    
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-    }
+    }//Boton Cerrar
 
-    //Boton Aceptar
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
            try{
             String nombre = txtNombre.getText().trim();
@@ -101,11 +101,13 @@ public class Campus_Insertar extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }
-
-    //Metodo Main
+    }//Boton Aceptar
+    
+    //Main
     public static void main(String args[]) {
 
+        //Look and fell - No Modificar
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -122,6 +124,7 @@ public class Campus_Insertar extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Campus_Insertar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
         //Mostrar Form
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -129,13 +132,13 @@ public class Campus_Insertar extends javax.swing.JFrame {
                 new Campus_Insertar().setVisible(true);
             }
         });
-    }
+    }//Fin Main
 
-    // Variables 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtNombre;
-    // End of Variables
+    // End of variables declaration//GEN-END:variables
 }

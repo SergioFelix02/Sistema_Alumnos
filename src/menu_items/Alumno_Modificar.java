@@ -10,7 +10,8 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         initComponents();
     }
 
-    // Inicializar Componentes
+    //Inicializar Componentes - No Modificar
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblEstatus = new javax.swing.JLabel();
@@ -22,9 +23,10 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         txtCampus_ID = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
         lblCampus_ID = new javax.swing.JLabel();
-        lblID_Alumno = new javax.swing.JLabel();
+        lblNombre1 = new javax.swing.JLabel();
         txtID_Alumno = new javax.swing.JTextField();
-        
+        lblID_Alumno = new javax.swing.JLabel();
+
         setTitle("Modificar Alumno");
         setResizable(false);
 
@@ -56,9 +58,11 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
         lblCampus_ID.setText("Campus_ID");
 
-        lblID_Alumno.setText("ID_Alumno:");
+        lblNombre1.setText("ID_Alumno:");
 
         txtID_Alumno.setText(" ");
+
+        lblID_Alumno.setText("ID_Alumno:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,19 +81,18 @@ public class Alumno_Modificar extends javax.swing.JFrame {
                             .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCampus_ID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblCampus_ID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(lblEstatus)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblNombre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,12 +102,12 @@ public class Alumno_Modificar extends javax.swing.JFrame {
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblID_Alumno)
-                    .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID_Alumno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCampus_ID)
@@ -122,14 +125,13 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// Fin Inicializar Componentes
-    
-    //Boton Cerrar
+    }// </editor-fold>//GEN-END:initComponents
+    //Fin Inicializar Componentes
+
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-    }
-  
-    //Boton Aceptar
+    }//Boton Cerrar                               
+
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             String id = txtID_Alumno.getText().trim();
@@ -163,11 +165,12 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }
-    
-    //Metodo Main
-    public static void main(String args[]) {
+    }//Boton Aceptar
 
+    public static void main(String args[]) {
+ 
+        //Look and fell - No Modificar
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -184,8 +187,9 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Alumno_Modificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
-        // Mostrar Form
+        //Mostrar Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Alumno_Modificar().setVisible(true);
@@ -193,17 +197,18 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         });
     }
 
-    // Variables 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel lblCampus_ID;
     private javax.swing.JLabel lblEstatus;
     private javax.swing.JLabel lblID_Alumno;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtCampus_ID;
     private javax.swing.JComboBox<String> txtEstatus;
     private javax.swing.JTextField txtID_Alumno;
     private javax.swing.JTextField txtNombre;
-    // End of Variables 
+    // End of variables declaration//GEN-END:variables
 }

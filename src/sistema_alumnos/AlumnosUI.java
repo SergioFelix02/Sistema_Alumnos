@@ -1,8 +1,10 @@
 package sistema_alumnos;
 
+import javax.swing.JOptionPane;
 import menu_items.*;
 
 public class AlumnosUI extends javax.swing.JFrame {
+    
     Alumno_Insertar InsertarA = new Alumno_Insertar();
     Alumno_Modificar Modificar = new Alumno_Modificar();
     Alumno_Desactivar Desactivar = new Alumno_Desactivar();
@@ -12,21 +14,22 @@ public class AlumnosUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    // Inicializar Componentes
+    //Inicializar Componentes - No Modificar     
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         JMenuBar = new javax.swing.JMenuBar();
-        MenuAlumnos = new javax.swing.JMenu();
+        Menu_Alumnos = new javax.swing.JMenu();
         MI_Insertar = new javax.swing.JMenuItem();
         MI_Modificar = new javax.swing.JMenuItem();
         MI_Desactivar = new javax.swing.JMenuItem();
         MI_Activos = new javax.swing.JMenuItem();
         MI_Todos = new javax.swing.JMenuItem();
-        MenuCampus = new javax.swing.JMenu();
+        Menu_Campus = new javax.swing.JMenu();
         MI_InsertarC = new javax.swing.JMenuItem();
-        MenuSalir = new javax.swing.JMenu();
+        Menu_Salir = new javax.swing.JMenu();
         MI_Cerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,7 +46,7 @@ public class AlumnosUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        MenuAlumnos.setText("Alumnos");
+        Menu_Alumnos.setText("Alumnos");
 
         MI_Insertar.setText("Insertar");
         MI_Insertar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +54,7 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_InsertarActionPerformed(evt);
             }
         });
-        MenuAlumnos.add(MI_Insertar);
+        Menu_Alumnos.add(MI_Insertar);
 
         MI_Modificar.setText("Modificar");
         MI_Modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +62,7 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_ModificarActionPerformed(evt);
             }
         });
-        MenuAlumnos.add(MI_Modificar);
+        Menu_Alumnos.add(MI_Modificar);
 
         MI_Desactivar.setText("Desactivar");
         MI_Desactivar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +70,7 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_DesactivarActionPerformed(evt);
             }
         });
-        MenuAlumnos.add(MI_Desactivar);
+        Menu_Alumnos.add(MI_Desactivar);
 
         MI_Activos.setText("Mostrar Activos");
         MI_Activos.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +78,7 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_ActivosActionPerformed(evt);
             }
         });
-        MenuAlumnos.add(MI_Activos);
+        Menu_Alumnos.add(MI_Activos);
 
         MI_Todos.setText("Mostrar Todos");
         MI_Todos.addActionListener(new java.awt.event.ActionListener() {
@@ -83,11 +86,11 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_TodosActionPerformed(evt);
             }
         });
-        MenuAlumnos.add(MI_Todos);
+        Menu_Alumnos.add(MI_Todos);
 
-        JMenuBar.add(MenuAlumnos);
+        JMenuBar.add(Menu_Alumnos);
 
-        MenuCampus.setText("Campus");
+        Menu_Campus.setText("Campus");
 
         MI_InsertarC.setText("Insertar");
         MI_InsertarC.addActionListener(new java.awt.event.ActionListener() {
@@ -95,11 +98,11 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_InsertarCActionPerformed(evt);
             }
         });
-        MenuCampus.add(MI_InsertarC);
+        Menu_Campus.add(MI_InsertarC);
 
-        JMenuBar.add(MenuCampus);
+        JMenuBar.add(Menu_Campus);
 
-        MenuSalir.setText("Salir");
+        Menu_Salir.setText("Salir");
 
         MI_Cerrar.setText("Cerrar Sesion");
         MI_Cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,9 +110,9 @@ public class AlumnosUI extends javax.swing.JFrame {
                 MI_CerrarActionPerformed(evt);
             }
         });
-        MenuSalir.add(MI_Cerrar);
+        Menu_Salir.add(MI_Cerrar);
 
-        JMenuBar.add(MenuSalir);
+        JMenuBar.add(Menu_Salir);
 
         setJMenuBar(JMenuBar);
 
@@ -117,68 +120,71 @@ public class AlumnosUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
-    }// Fin Inicializar Componentes
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void MI_ActivosActionPerformed(java.awt.event.ActionEvent evt) {
-        // Pendiente
-    }// Mostrar Alumnos Activos
+    private void MI_ActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_ActivosActionPerformed
+        try{
+            Sistema_Alumnos cn = new Sistema_Alumnos();
+            cn.AlumnosActiveGetSelect();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_MI_ActivosActionPerformed
 
-    private void MI_TodosActionPerformed(java.awt.event.ActionEvent evt) {
-        // Pendientewdw
-    }// Mostrar Todos los Alumnos
+    private void MI_TodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_TodosActionPerformed
 
+    }//GEN-LAST:event_MI_TodosActionPerformed
+    //Fin Inicializar Componentes
+    
     private void MI_InsertarActionPerformed(java.awt.event.ActionEvent evt) {
         InsertarA.setVisible(true);
         Modificar.setVisible(false);
         Desactivar.setVisible(false);
         InsertarC.setVisible(false);
-    }// Insertar Alumno
-    
+    }//Insertar Alumno
+
+    private void MI_CerrarActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        LoginUI Login = new LoginUI();
+        Login.setVisible(true);
+    }//Cerrar Sesion
+
     private void MI_ModificarActionPerformed(java.awt.event.ActionEvent evt) {
         Modificar.setVisible(true);
         InsertarA.setVisible(false);
         Desactivar.setVisible(false);
         InsertarC.setVisible(false);
-    }// Modificar Alumno
+    }//Modificar Alumno
 
     private void MI_DesactivarActionPerformed(java.awt.event.ActionEvent evt) {
         Desactivar.setVisible(true);
         Modificar.setVisible(false);
         InsertarA.setVisible(false);
         InsertarC.setVisible(false);
-    }// Desactivar Alumno
+    }//Desactivar Alumno
 
     private void MI_InsertarCActionPerformed(java.awt.event.ActionEvent evt) {
         InsertarC.setVisible(true);
         Modificar.setVisible(false);
         Desactivar.setVisible(false);
         InsertarA.setVisible(false);
-    }// Insertar Campus
-    
-   
-    private void MI_CerrarActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-        LoginUI Login = new LoginUI();
-        Login.setVisible(true);
-    }// Cerrar Sesion
-    
+    }//Instertar Campus
+
+    //Main
     public static void main(String args[]) {
 
+        //Look and fell - No Modificar
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -195,6 +201,7 @@ public class AlumnosUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AlumnosUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        // </editor-fold>
 
         // Mostrar Form
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -202,9 +209,9 @@ public class AlumnosUI extends javax.swing.JFrame {
                 new AlumnosUI().setVisible(true);
             }
         });
-    }// Metodo Main
+    }//Fin Main
 
-    // Variables 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar JMenuBar;
     private javax.swing.JMenuItem MI_Activos;
     private javax.swing.JMenuItem MI_Cerrar;
@@ -213,10 +220,10 @@ public class AlumnosUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_InsertarC;
     private javax.swing.JMenuItem MI_Modificar;
     private javax.swing.JMenuItem MI_Todos;
-    private javax.swing.JMenu MenuAlumnos;
-    private javax.swing.JMenu MenuCampus;
-    private javax.swing.JMenu MenuSalir;
+    private javax.swing.JMenu Menu_Alumnos;
+    private javax.swing.JMenu Menu_Campus;
+    private javax.swing.JMenu Menu_Salir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    // End of Variables 
+    // End of variables declaration//GEN-END:variables
 }

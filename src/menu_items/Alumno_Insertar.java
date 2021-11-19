@@ -8,7 +8,8 @@ public class Alumno_Insertar extends javax.swing.JFrame {
         initComponents();
     }
 
-    // Inicializar Componentes
+    //Inicializar Componentes - No Modificar
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
@@ -65,15 +66,14 @@ public class Alumno_Insertar extends javax.swing.JFrame {
                             .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCampus_ID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lblCampus_ID)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblNombre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNombre))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblEstatus)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,13 +106,13 @@ public class Alumno_Insertar extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// Fin Inicializar Componentes
-
-    //Boton Cerrar
+    }// </editor-fold>//GEN-END:initComponents
+    //Fin Inicializar Componentes
+    
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
-    }
+        this.setVisible(false);
+    }//Boton Cerrar
 
-    //Boton Aceptar
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             String nombre = txtNombre.getText().trim();
@@ -136,11 +136,13 @@ public class Alumno_Insertar extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }
-   
-    //Metodo Main
+    }//Boton Aceptar
+
+    //Main
     public static void main(String args[]) {
 
+        //Look and fell - No Modificar
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -157,6 +159,7 @@ public class Alumno_Insertar extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Alumno_Insertar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
         //Mostrar Form
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -164,9 +167,9 @@ public class Alumno_Insertar extends javax.swing.JFrame {
                 new Alumno_Insertar().setVisible(true);
             }
         });
-    }
+    }//Fin Main
 
-    // Variables 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel lblCampus_ID;
@@ -176,5 +179,5 @@ public class Alumno_Insertar extends javax.swing.JFrame {
     private javax.swing.JTextField txtCampus_ID;
     private javax.swing.JComboBox<String> txtEstatus;
     private javax.swing.JTextField txtNombre;
-    // End of Variables 
+    // End of variables declaration//GEN-END:variables
 }
