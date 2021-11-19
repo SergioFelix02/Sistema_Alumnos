@@ -107,5 +107,4 @@ public class Sistema_Alumnos extends MyConnection {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
 }
