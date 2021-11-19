@@ -1,5 +1,4 @@
 package sistema_alumnos;
-
 import javax.swing.JOptionPane;
 import java.sql.*;
 
