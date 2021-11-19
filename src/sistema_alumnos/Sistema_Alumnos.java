@@ -75,6 +75,7 @@ public class Sistema_Alumnos extends MyConnection {
             String nombre = "";
             int campus_id = 0;
             int estatus = 0;
+            System.out.println(nombre + campus_id + estatus);
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
             pst.setInt(1, id);
             pst.execute();
@@ -95,6 +96,7 @@ public class Sistema_Alumnos extends MyConnection {
     public void BuscarC(int id) {
         String nombre = "";
         int campus_id = 0;
+        System.out.println(nombre + campus_id);
         try {
             PreparedStatement pst = cn.prepareStatement("select * from Campus where id = ?");
             pst.setInt(1, id);
