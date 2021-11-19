@@ -27,7 +27,8 @@ public class Sistema_Alumnos extends MyConnection {
             cst.setString(1, nombre);
             cst.setInt(2, campus_id);
             cst.setInt(3, estatus);
-            rs = cst.executeQuery();
+            boolean r = cst.execute();
+            //rs = cst.executeQuery();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -40,7 +41,8 @@ public class Sistema_Alumnos extends MyConnection {
             cst.setString(2, nombre);
             cst.setInt(3, campus_id);
             cst.setInt(4, estatus);
-            rs = cst.executeQuery();
+            boolean r = cst.execute();
+            //rs = cst.executeQuery();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -50,7 +52,8 @@ public class Sistema_Alumnos extends MyConnection {
         try {
             CallableStatement cst = cn.prepareCall("{call AlumnosDesactivar(?)}");
             cst.setInt(1, id_alumno);
-            rs = cst.executeQuery();
+            boolean r = cst.execute();
+            //rs = cst.executeQuery();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -74,7 +77,8 @@ public class Sistema_Alumnos extends MyConnection {
             int estatus = 0;
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
             pst.setInt(1, id);
-            rs = pst.executeQuery();
+            boolean r = pst.execute();
+            //rs = pst.executeQuery();
             if (rs.next()) {
                 nombre = rs.getString("nombre");
                 campus_id = rs.getInt("campusId");
@@ -94,7 +98,8 @@ public class Sistema_Alumnos extends MyConnection {
         try {
             PreparedStatement pst = cn.prepareStatement("select * from Campus where id = ?");
             pst.setInt(1, id);
-            rs = pst.executeQuery();
+            boolean r = pst.execute();
+            //rs = pst.executeQuery();
             if (rs.next()) {
                 nombre = rs.getString("nombre");
                 campus_id = rs.getInt("id");
@@ -114,7 +119,8 @@ public class Sistema_Alumnos extends MyConnection {
             CallableStatement cst = cn.prepareCall("{call AlumnosActiveGetSelect}");
             String cadena = cst.getString(null);
             System.out.println(cadena);
-            rs = cst.executeQuery();
+            boolean r = cst.execute();
+            //rs = cst.executeQuery();
             int id = rs.getInt("id");
             String nombre = rs.getString("nombre");
             int campus_id = rs.getInt("id");
