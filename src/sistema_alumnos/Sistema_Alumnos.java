@@ -82,7 +82,6 @@ public class Sistema_Alumnos extends MyConnection {
             } else {
                 foundA = false;
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
