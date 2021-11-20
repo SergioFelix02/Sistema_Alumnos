@@ -184,23 +184,26 @@ public class AlumnosUI extends javax.swing.JFrame {
 
     public void CrearTabla(){
         try{
-            AlumnosUI Alumnos = new AlumnosUI();
+            //AlumnosUI Alumnos = new AlumnosUI();
             Connection cn = MyConnection.getConnection();
             DefaultTableModel dfm = new DefaultTableModel();
-            Alumnos.jTable1.setModel(dfm);
-            dfm.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Fecha de Creacion", "Estatus"});
+            dfm.addColumn("ID");
+            dfm.addColumn("Nombre");
+            dfm.addColumn("Fecha de Creacion");
+            dfm.addColumn("Estatus");
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 dfm.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), (rs.getDate("fechaCreacion")).toString(), rs.getInt("estatus")});
             } 
+            jTable1.setModel(dfm);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
     }
     //Main
     public static void main(String args[]) {
-
+        
         //Look and fell - No Modificar
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {

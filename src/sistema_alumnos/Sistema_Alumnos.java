@@ -9,8 +9,11 @@ public class Sistema_Alumnos extends MyConnection {
     boolean foundC = false;
 
     public static void main(String[] args) {
-        LoginUI Login = new LoginUI();
-        Login.setVisible(true);
+        //LoginUI Login = new LoginUI();
+        //Login.setVisible(true);
+        AlumnosUI princ = new AlumnosUI();
+        princ.setVisible(true);
+        princ.CrearTabla();
     }
 
     public boolean isFoundA() {
