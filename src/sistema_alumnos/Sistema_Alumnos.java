@@ -8,17 +8,17 @@ public class Sistema_Alumnos extends MyConnection {
     boolean foundA = false;
     boolean foundC = false;
 
+    public static void main(String[] args) {
+        LoginUI Login = new LoginUI();
+        Login.setVisible(true);
+    }
+
     public boolean isFoundA() {
         return foundA;
     }
 
     public boolean isFoundC() {
         return foundC;
-    }
-
-    public static void main(String[] args) {
-        LoginUI Login = new LoginUI();
-        Login.setVisible(true);
     }
 
     public void Insertar(String nombre, int campus_id, int estatus) {
@@ -78,8 +78,8 @@ public class Sistema_Alumnos extends MyConnection {
             System.out.println(nombre + campus_id + estatus);
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
             pst.setInt(1, id);
-            pst.execute();
-            //rs = pst.executeQuery();
+            //pst.execute();
+            rs = pst.executeQuery();
             if (rs.next()) {
                 nombre = rs.getString("nombre");
                 campus_id = rs.getInt("campusId");
@@ -100,8 +100,8 @@ public class Sistema_Alumnos extends MyConnection {
         try {
             PreparedStatement pst = cn.prepareStatement("select * from Campus where id = ?");
             pst.setInt(1, id);
-            pst.execute();
-            //rs = pst.executeQuery();
+            //pst.execute();
+            rs = pst.executeQuery();
             if (rs.next()) {
                 nombre = rs.getString("nombre");
                 campus_id = rs.getInt("id");
@@ -139,4 +139,5 @@ public class Sistema_Alumnos extends MyConnection {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
 }

@@ -1,6 +1,8 @@
 package sistema_alumnos;
 
+import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import menu_items.*;
 
 public class AlumnosUI extends javax.swing.JFrame {
@@ -130,8 +132,9 @@ public class AlumnosUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    //Fin Inicializar Componentes
 
-    private void MI_ActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_ActivosActionPerformed
+    private void MI_ActivosActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             Sistema_Alumnos cn = new Sistema_Alumnos();
             cn.AlumnosActiveGetSelect();
@@ -139,12 +142,11 @@ public class AlumnosUI extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_MI_ActivosActionPerformed
+    }//Mostrar Activos
 
-    private void MI_TodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_TodosActionPerformed
+    private void MI_TodosActionPerformed(java.awt.event.ActionEvent evt) {
 
-    }//GEN-LAST:event_MI_TodosActionPerformed
-    //Fin Inicializar Componentes
+    }//Mostrar Todos
     
     private void MI_InsertarActionPerformed(java.awt.event.ActionEvent evt) {
         InsertarA.setVisible(true);
@@ -180,6 +182,22 @@ public class AlumnosUI extends javax.swing.JFrame {
         InsertarA.setVisible(false);
     }//Instertar Campus
 
+    public void CrearTabla(){
+        try{
+            AlumnosUI Alumnos = new AlumnosUI();
+            Connection cn = MyConnection.getConnection();
+            DefaultTableModel dfm = new DefaultTableModel();
+            Alumnos.jTable1.setModel(dfm);
+            dfm.setColumnIdentifiers(new Object[]{"ID", "Nombre", "Fecha de Creacion", "Estatus"});
+            PreparedStatement pst = cn.prepareStatement("select * from Alumnos");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                dfm.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), (rs.getDate("fechaCreacion")).toString(), rs.getInt("estatus")});
+            } 
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     //Main
     public static void main(String args[]) {
 

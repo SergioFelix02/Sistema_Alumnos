@@ -2,7 +2,7 @@
 package menu_items;
 
 import javax.swing.JOptionPane;
-import sistema_alumnos.Sistema_Alumnos;
+import sistema_alumnos.*;
 
 public class Campus_Insertar extends javax.swing.JFrame {
 
@@ -84,7 +84,10 @@ public class Campus_Insertar extends javax.swing.JFrame {
     //Fin Inicializar Componentes
     
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
+        AlumnosUI a = new AlumnosUI();
+        a.CrearTabla();
         this.setVisible(false);
+ 
     }//Boton Cerrar
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {

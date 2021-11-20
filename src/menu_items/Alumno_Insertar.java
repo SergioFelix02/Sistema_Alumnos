@@ -1,7 +1,9 @@
 
 package menu_items;
+
 import javax.swing.JOptionPane;
 import sistema_alumnos.*;
+
 public class Alumno_Insertar extends javax.swing.JFrame {
 
     public Alumno_Insertar() {

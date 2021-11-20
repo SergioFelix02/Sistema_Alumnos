@@ -2,7 +2,7 @@
 package menu_items;
 
 import javax.swing.JOptionPane;
-import sistema_alumnos.Sistema_Alumnos;
+import sistema_alumnos.*;
 
 public class Alumno_Modificar extends javax.swing.JFrame {
 

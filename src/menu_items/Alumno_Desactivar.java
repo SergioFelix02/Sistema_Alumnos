@@ -2,7 +2,7 @@
 package menu_items;
 
 import javax.swing.JOptionPane;
-import sistema_alumnos.Sistema_Alumnos;
+import sistema_alumnos.*;
 
 public class Alumno_Desactivar extends javax.swing.JFrame {
 
@@ -139,8 +139,6 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             String id = txtID_Alumno.getText().trim();
-            //String nombre = txtNombre.getText().trim();
-            //String txtCampus = txtCampus_ID.getText().trim();
             if (id.equals("")){
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
             }
@@ -148,15 +146,6 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
                 int id_alumno = Integer.parseInt(id);
                 Sistema_Alumnos cn = new Sistema_Alumnos();
                 cn.BuscarA(id_alumno);
-                /*
-                int estatus = 0;
-                if (txtEstatus.getSelectedItem() == "Activo"){
-                    estatus = 1;
-                }
-                else{
-                    estatus = 0;
-                }
-                */
                 if (cn.isFoundA()){
                     cn.Desactivar(id_alumno);   
                     JOptionPane.showMessageDialog(null, "Alumno Desactivado Correctamente!");             
