@@ -2,7 +2,6 @@
 package menu_items;
 
 import javax.swing.JOptionPane;
-import sistema_alumnos.*;
 import sistema_alumnos.Sistema_Alumnos;
 
 public class Alumno_Desactivar extends javax.swing.JFrame {

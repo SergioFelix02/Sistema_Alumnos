@@ -41,11 +41,6 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         txtEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
 
         txtNombre.setText(" ");
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,11 +67,6 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         lblNombre1.setText("ID_Alumno:");
 
         txtID_Alumno.setText(" ");
-        txtID_Alumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtID_AlumnoActionPerformed(evt);
-            }
-        });
 
         lblID_Alumno.setText("ID_Alumno:");
 
@@ -153,10 +143,6 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtID_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID_AlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtID_AlumnoActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String id = txtID_Alumno.getText().trim();
         if (id.equals("")){
@@ -181,10 +167,6 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
     //Fin Inicializar Componentes
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {

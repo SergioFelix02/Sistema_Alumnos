@@ -132,10 +132,16 @@ public class Alumno_Insertar extends javax.swing.JFrame {
                 else{
                     estatus = 0;
                 }
-                cn.Insertar(nombre, campus_id, estatus);
-                JOptionPane.showMessageDialog(null, "Alumno Registrado Correctamente!");
-                txtNombre.setText("");
-                txtCampus_ID.setText("");
+                cn.BuscarC(campus_id);
+                if (cn.isFoundC()){
+                    cn.Insertar(nombre, campus_id, estatus);
+                    JOptionPane.showMessageDialog(null, "Alumno Registrado Correctamente!");
+                    txtNombre.setText("");
+                    txtCampus_ID.setText("");                
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Campus no encontrado");        
+                }
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
