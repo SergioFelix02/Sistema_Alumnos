@@ -24,8 +24,6 @@ public class MyConnection {
             BufferedReader Buffer = new BufferedReader(File);
             User = Buffer.readLine();
             Password = Buffer.readLine();
-            System.out.println(User);
-            System.out.println(Password);
             File.close();
         }catch(IOException MM) {
             //System.out.println("Error: "+MM.getMessage());
