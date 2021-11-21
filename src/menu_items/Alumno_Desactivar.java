@@ -3,8 +3,11 @@ package menu_items;
 
 import javax.swing.JOptionPane;
 import sistema_alumnos.*;
+import sistema_alumnos.Sistema_Alumnos;
 
 public class Alumno_Desactivar extends javax.swing.JFrame {
+    
+    Sistema_Alumnos cn = new Sistema_Alumnos();
 
     public Alumno_Desactivar() {
         initComponents();
@@ -26,6 +29,7 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         lblID_Alumno = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
 
         setTitle("Desactivar Alumno");
         setResizable(false);
@@ -67,37 +71,45 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
 
         lblID_Alumno.setText("ID_Alumno:");
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema_alumnos/icon.png"))); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblTitulo)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(lblID_Alumno)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtID_Alumno))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCampus_ID)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCampus_ID)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(lblEstatus)
+                            .addComponent(lblNombre)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblEstatus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblID_Alumno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +117,11 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID_Alumno))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblID_Alumno)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,12 +138,36 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCerrar))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String id = txtID_Alumno.getText().trim();
+        if (id.equals("")){
+                JOptionPane.showMessageDialog(null, "Escribe un ID");
+        }
+        else{
+            int id_alumno = Integer.parseInt(id);
+            cn.BuscarA(id_alumno);
+            if(cn.isFoundA()){
+                txtNombre.setText(cn.getNombre());
+                txtCampus_ID.setText(String.valueOf(cn.getCampus_id()));
+                if (cn.getEstatus() == 1){
+                    txtEstatus.setSelectedIndex(0);
+                }
+                else{
+                    txtEstatus.setSelectedIndex(1);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Alumno no Encontrado");
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
     //Fin Inicializar Componentes
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,12 +186,19 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
                 cn.BuscarA(id_alumno);
                 if (cn.isFoundA()){
                     cn.Desactivar(id_alumno);   
-                    JOptionPane.showMessageDialog(null, "Alumno Desactivado Correctamente!");             
+                    JOptionPane.showMessageDialog(null, "Alumno Desactivado Correctamente!");
+                    txtID_Alumno.setText("");
+                    txtNombre.setText("");
+                    txtCampus_ID.setText("");                
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Alumno no encontrado");        
                 }
             }
+            txtID_Alumno.setText("");
+            txtNombre.setText("");
+            txtCampus_ID.setText("");
+            txtEstatus.setSelectedIndex(0);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -162,7 +207,7 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
     //Main
     public static void main(String args[]) {
 
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -192,6 +237,7 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel lblCampus_ID;
     private javax.swing.JLabel lblEstatus;

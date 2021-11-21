@@ -13,8 +13,8 @@ public class LoginUI extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblCampus_ID = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesion");
@@ -27,8 +27,6 @@ public class LoginUI extends javax.swing.JFrame {
         lblCampus_ID.setText("Contraseña:");
 
         txtUser.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
-
-        txtPassword.setFont(new java.awt.Font("Product Sans", 0, 12)); // NOI18N
 
         btnAceptar.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
         btnAceptar.setText("Ingresar");
@@ -46,10 +44,10 @@ public class LoginUI extends javax.swing.JFrame {
                 .addContainerGap(80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCampus_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(txtPassword))
                 .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
@@ -61,7 +59,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCampus_ID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAceptar)
@@ -79,6 +77,7 @@ public class LoginUI extends javax.swing.JFrame {
         AlumnosUI Interfaz = new AlumnosUI();
         Interfaz.setVisible(true);
         this.setVisible(false);
+        Interfaz.CrearTabla();
     }
 
     public String getPassword() {
@@ -92,7 +91,7 @@ public class LoginUI extends javax.swing.JFrame {
     //Main
     public static void main(String args[]) {
 
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -124,7 +123,7 @@ public class LoginUI extends javax.swing.JFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel lblCampus_ID;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

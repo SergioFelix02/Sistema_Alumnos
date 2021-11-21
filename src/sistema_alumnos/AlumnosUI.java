@@ -1,9 +1,12 @@
 package sistema_alumnos;
 
+import menu_items.Alumno_Desactivar;
+import menu_items.Alumno_Modificar;
+import menu_items.Alumno_Insertar;
+import menu_items.Campus_Insertar;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import menu_items.*;
 
 public class AlumnosUI extends javax.swing.JFrame {
     
@@ -31,6 +34,7 @@ public class AlumnosUI extends javax.swing.JFrame {
         MI_Todos = new javax.swing.JMenuItem();
         Menu_Campus = new javax.swing.JMenu();
         MI_InsertarC = new javax.swing.JMenuItem();
+        MI_MostrarCampus = new javax.swing.JMenuItem();
         Menu_Salir = new javax.swing.JMenu();
         MI_Cerrar = new javax.swing.JMenuItem();
 
@@ -102,6 +106,14 @@ public class AlumnosUI extends javax.swing.JFrame {
         });
         Menu_Campus.add(MI_InsertarC);
 
+        MI_MostrarCampus.setText("Consultar");
+        MI_MostrarCampus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_MostrarCampusActionPerformed(evt);
+            }
+        });
+        Menu_Campus.add(MI_MostrarCampus);
+
         JMenuBar.add(Menu_Campus);
 
         Menu_Salir.setText("Salir");
@@ -126,26 +138,28 @@ public class AlumnosUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MI_MostrarCampusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_MostrarCampusActionPerformed
+        MostrarCampus();        
+    }//GEN-LAST:event_MI_MostrarCampusActionPerformed
     //Fin Inicializar Componentes
 
     private void MI_ActivosActionPerformed(java.awt.event.ActionEvent evt) {
         try{
-            Sistema_Alumnos cn = new Sistema_Alumnos();
-            cn.AlumnosActiveGetSelect();
-            
+            AlumnosActiveGetSelect();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
     }//Mostrar Activos
 
     private void MI_TodosActionPerformed(java.awt.event.ActionEvent evt) {
-
+        AlumnosGetSelect();
     }//Mostrar Todos
     
     private void MI_InsertarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,9 +170,12 @@ public class AlumnosUI extends javax.swing.JFrame {
     }//Insertar Alumno
 
     private void MI_CerrarActionPerformed(java.awt.event.ActionEvent evt) {
+        System.exit(0);
+        /*
         this.setVisible(false);
         LoginUI Login = new LoginUI();
         Login.setVisible(true);
+        */
     }//Cerrar Sesion
 
     private void MI_ModificarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,20 +199,79 @@ public class AlumnosUI extends javax.swing.JFrame {
         InsertarA.setVisible(false);
     }//Instertar Campus
 
-    public void CrearTabla(){
+    
+    public void AlumnosActiveGetSelect(){
         try{
-            //AlumnosUI Alumnos = new AlumnosUI();
             Connection cn = MyConnection.getConnection();
+            CallableStatement cst = cn.prepareCall("{call AlumnosActiveGetSelect()}");
             DefaultTableModel dfm = new DefaultTableModel();
             dfm.addColumn("ID");
             dfm.addColumn("Nombre");
             dfm.addColumn("Fecha de Creacion");
             dfm.addColumn("Estatus");
+            dfm.addColumn("ID Camnpus");
+            dfm.addColumn("Nombre Campus");
+            ResultSet rs = cst.executeQuery();
+            while (rs.next()) {
+                dfm.addRow(new Object[]{rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5), rs.getString(6)});
+            } 
+            jTable1.setModel(dfm);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        } 
+    }
+        public void AlumnosGetSelect(){
+        try{
+            Connection cn = MyConnection.getConnection();
+            CallableStatement cst = cn.prepareCall("{call AlumnosGetSelect()}");
+            DefaultTableModel dfm = new DefaultTableModel();
+            dfm.addColumn("ID");
+            dfm.addColumn("Nombre");
+            dfm.addColumn("Fecha de Creacion");
+            dfm.addColumn("Estatus");
+            dfm.addColumn("ID Camnpus");
+            dfm.addColumn("Nombre Campus");
+            ResultSet rs = cst.executeQuery();
+            while (rs.next()) {
+                dfm.addRow(new Object[]{rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5), rs.getString(6)});
+            } 
+            jTable1.setModel(dfm);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    public void MostrarCampus(){
+        try{
+            Connection cn = MyConnection.getConnection();
+            DefaultTableModel dfm = new DefaultTableModel();
+            dfm.addColumn("ID");
+            dfm.addColumn("Nombre");
+            PreparedStatement pst = cn.prepareStatement("select * from Campus");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                dfm.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre")});
+            } 
+
+            jTable1.setModel(dfm);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    public void CrearTabla(){
+        try{
+            Connection cn = MyConnection.getConnection();
+            DefaultTableModel dfm = new DefaultTableModel();
+            dfm.addColumn("ID");
+            dfm.addColumn("Nombre");
+            dfm.addColumn("ID Campus");
+            dfm.addColumn("Fecha de Creacion");
+            dfm.addColumn("Estatus");
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                dfm.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), (rs.getDate("fechaCreacion")).toString(), rs.getInt("estatus")});
+                dfm.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getInt("campusId") ,(rs.getDate("fechaCreacion")).toString(), rs.getInt("estatus")});
             } 
+
             jTable1.setModel(dfm);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -204,7 +280,7 @@ public class AlumnosUI extends javax.swing.JFrame {
     //Main
     public static void main(String args[]) {
         
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -240,6 +316,7 @@ public class AlumnosUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_Insertar;
     private javax.swing.JMenuItem MI_InsertarC;
     private javax.swing.JMenuItem MI_Modificar;
+    private javax.swing.JMenuItem MI_MostrarCampus;
     private javax.swing.JMenuItem MI_Todos;
     private javax.swing.JMenu Menu_Alumnos;
     private javax.swing.JMenu Menu_Campus;

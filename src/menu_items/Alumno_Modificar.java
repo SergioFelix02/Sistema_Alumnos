@@ -1,10 +1,15 @@
 
 package menu_items;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import sistema_alumnos.*;
+import sistema_alumnos.Sistema_Alumnos;
 
 public class Alumno_Modificar extends javax.swing.JFrame {
+    
+    Sistema_Alumnos cn = new Sistema_Alumnos();
 
     public Alumno_Modificar() {
         initComponents();
@@ -26,6 +31,7 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         lblNombre1 = new javax.swing.JLabel();
         txtID_Alumno = new javax.swing.JTextField();
         lblID_Alumno = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
 
         setTitle("Modificar Alumno");
         setResizable(false);
@@ -35,6 +41,11 @@ public class Alumno_Modificar extends javax.swing.JFrame {
         txtEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
 
         txtNombre.setText(" ");
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +80,13 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
         lblID_Alumno.setText("ID_Alumno:");
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema_alumnos/icon.png"))); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,22 +99,24 @@ public class Alumno_Modificar extends javax.swing.JFrame {
                         .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCampus_ID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCampus_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblEstatus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombre))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblID_Alumno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtID_Alumno)))
+                        .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCampus_ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblEstatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEstatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCampus_ID))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,9 +125,11 @@ public class Alumno_Modificar extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID_Alumno))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtID_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblID_Alumno))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,6 +156,35 @@ public class Alumno_Modificar extends javax.swing.JFrame {
     private void txtID_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID_AlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtID_AlumnoActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String id = txtID_Alumno.getText().trim();
+        if (id.equals("")){
+                JOptionPane.showMessageDialog(null, "Escribe un ID");
+        }
+        else{
+            int id_alumno = Integer.parseInt(id);
+            cn.BuscarA(id_alumno);
+            if(cn.isFoundA()){
+                txtNombre.setText(cn.getNombre());
+                txtCampus_ID.setText(String.valueOf(cn.getCampus_id()));
+                if (cn.getEstatus() == 1){
+                    txtEstatus.setSelectedIndex(0);
+                }
+                else{
+                    txtEstatus.setSelectedIndex(1);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Alumno no Encontrado");
+            }
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
     //Fin Inicializar Componentes
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,9 +202,8 @@ public class Alumno_Modificar extends javax.swing.JFrame {
             else{
                 int id_alumno = Integer.parseInt(id);
                 int campus_id = Integer.parseInt(txtCampus);
-                Sistema_Alumnos cn = new Sistema_Alumnos();
-                cn.BuscarA(id_alumno);
                 cn.BuscarC(campus_id);
+
                 int estatus = 0;
                 if (txtEstatus.getSelectedItem() == "Activo"){
                     estatus = 1;
@@ -168,7 +218,10 @@ public class Alumno_Modificar extends javax.swing.JFrame {
                 else{
                     JOptionPane.showMessageDialog(null, "Alumno o campus no encontrados");        
                 }
-
+                txtID_Alumno.setText("");
+                txtNombre.setText("");
+                txtCampus_ID.setText("");
+                txtEstatus.setSelectedIndex(0);
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -177,7 +230,7 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
     public static void main(String args[]) {
  
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -207,6 +260,7 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel lblCampus_ID;
     private javax.swing.JLabel lblEstatus;
@@ -219,4 +273,16 @@ public class Alumno_Modificar extends javax.swing.JFrame {
     private javax.swing.JTextField txtID_Alumno;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTxtCampus_ID() {
+        return txtCampus_ID;
+    }
+
+    public JComboBox<String> getTxtEstatus() {
+        return txtEstatus;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
 }

@@ -1,13 +1,19 @@
 package sistema_alumnos;
+import menu_items.Alumno_Desactivar;
+import menu_items.Alumno_Modificar;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
-public class Sistema_Alumnos extends MyConnection {
+public class Sistema_Alumnos {
     ResultSet rs;
     Connection cn = MyConnection.getConnection();
     boolean foundA = false;
     boolean foundC = false;
+    String nombre = "";
+    int campus_id = 0;
+    int estatus = 0;
     public static AlumnosUI princ = new AlumnosUI();
+    
     public static void main(String[] args) {
         //LoginUI Login = new LoginUI();
         //Login.setVisible(true);
@@ -78,10 +84,6 @@ public class Sistema_Alumnos extends MyConnection {
     
     public void BuscarA(int id) {
         try {
-            String nombre = "";
-            int campus_id = 0;
-            int estatus = 0;
-            System.out.println(nombre + campus_id + estatus);
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
             pst.setInt(1, id);
             //pst.execute();
@@ -122,30 +124,15 @@ public class Sistema_Alumnos extends MyConnection {
         }
         princ.CrearTabla();
     }
-    
-    //No funciona xd
-    public void AlumnosActiveGetSelect() {
-        try {
-            CallableStatement cst = cn.prepareCall("{call AlumnosActiveGetSelect}");
-            String cadena = cst.getString(null);
-            System.out.println(cadena);
-            cst.execute();
-            //rs = cst.executeQuery();
-            int id = rs.getInt("id");
-            String nombre = rs.getString("nombre");
-            int campus_id = rs.getInt("id");
-            String date = (rs.getDate("fechaCreacion")).toString();
-            int estatus = rs.getInt("estatus");
-            
-            System.out.println(id);
-            System.out.println(nombre);
-            System.out.println(campus_id);
-            System.out.println(date);
-            System.out.println(estatus);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        princ.CrearTabla();
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCampus_id() {
+        return campus_id;
+    }
+
+    public int getEstatus() {
+        return estatus;
     }
 }

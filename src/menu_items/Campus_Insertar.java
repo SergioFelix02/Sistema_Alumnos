@@ -84,8 +84,7 @@ public class Campus_Insertar extends javax.swing.JFrame {
     //Fin Inicializar Componentes
     
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
-        AlumnosUI a = new AlumnosUI();
-        a.CrearTabla();
+
         this.setVisible(false);
  
     }//Boton Cerrar
@@ -97,9 +96,10 @@ public class Campus_Insertar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
             }
             else{
-                Sistema_Alumnos a = new Sistema_Alumnos();
+                Sistema_Alumnos cn = new Sistema_Alumnos();
                 JOptionPane.showMessageDialog(null, "Campus Registrado Correctamente!");           
-                a.InsertarC(nombre);   
+                cn.InsertarC(nombre);   
+                txtNombre.setText("");
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -109,7 +109,7 @@ public class Campus_Insertar extends javax.swing.JFrame {
     //Main
     public static void main(String args[]) {
 
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -140,8 +140,8 @@ public class Campus_Insertar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

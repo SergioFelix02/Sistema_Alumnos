@@ -134,6 +134,8 @@ public class Alumno_Insertar extends javax.swing.JFrame {
                 }
                 cn.Insertar(nombre, campus_id, estatus);
                 JOptionPane.showMessageDialog(null, "Alumno Registrado Correctamente!");
+                txtNombre.setText("");
+                txtCampus_ID.setText("");
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -143,7 +145,7 @@ public class Alumno_Insertar extends javax.swing.JFrame {
     //Main
     public static void main(String args[]) {
 
-        //Look and fell - No Modificar
+        //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
