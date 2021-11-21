@@ -1,6 +1,4 @@
 package sistema_alumnos;
-import menu_items.Alumno_Desactivar;
-import menu_items.Alumno_Modificar;
 import javax.swing.JOptionPane;
 import java.sql.*;
 

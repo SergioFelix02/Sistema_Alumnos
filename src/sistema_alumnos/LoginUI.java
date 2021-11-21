@@ -81,7 +81,7 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     public String getPassword() {
-        return txtPassword.getText().trim();
+        return txtPassword.getPassword().toString();
     }
 
     public String getUser() {
