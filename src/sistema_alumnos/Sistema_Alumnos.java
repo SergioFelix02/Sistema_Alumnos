@@ -7,11 +7,10 @@ public class Sistema_Alumnos extends MyConnection {
     Connection cn = MyConnection.getConnection();
     boolean foundA = false;
     boolean foundC = false;
-
+    public static AlumnosUI princ = new AlumnosUI();
     public static void main(String[] args) {
         //LoginUI Login = new LoginUI();
         //Login.setVisible(true);
-        AlumnosUI princ = new AlumnosUI();
         princ.setVisible(true);
         princ.CrearTabla();
     }
@@ -35,6 +34,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
 
     public void Modificar(int id_alumno, String nombre, int campus_id, int estatus) {
@@ -49,6 +49,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
 
     public void Desactivar(int id_alumno) {
@@ -60,6 +61,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
 
     public void InsertarC(String nombre) {
@@ -71,6 +73,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
     
     public void BuscarA(int id) {
@@ -94,6 +97,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
     
     public void BuscarC(int id) {
@@ -116,6 +120,7 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
     
     //No funciona xd
@@ -141,6 +146,6 @@ public class Sistema_Alumnos extends MyConnection {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        princ.CrearTabla();
     }
-    
 }
