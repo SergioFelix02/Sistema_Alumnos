@@ -4,7 +4,6 @@ package menu_items;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import sistema_alumnos.*;
 import sistema_alumnos.Sistema_Alumnos;
 
 public class Alumno_Modificar extends javax.swing.JFrame {
