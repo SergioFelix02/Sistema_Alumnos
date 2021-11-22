@@ -1,4 +1,3 @@
-
 package menu_items;
 
 import javax.swing.JOptionPane;
@@ -110,40 +109,37 @@ public class Alumno_Insertar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //Fin Inicializar Componentes
-    
+
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
     }//Boton Cerrar
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-        try{
+        try {
             String nombre = txtNombre.getText().trim();
             String txtCampus = txtCampus_ID.getText().trim();
-            if (nombre.equals("") || txtCampus.equals("")){
+            if (nombre.equals("") || txtCampus.equals("")) {
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
-            }
-            else{
+            } else {
                 int campus_id = Integer.parseInt(txtCampus);
                 Sistema_Alumnos cn = new Sistema_Alumnos();
                 int estatus = 0;
-                if (txtEstatus.getSelectedItem() == "Activo"){
+                if (txtEstatus.getSelectedItem() == "Activo") {
                     estatus = 1;
-                }
-                else{
+                } else {
                     estatus = 0;
                 }
                 cn.BuscarC(campus_id);
-                if (cn.isFoundC()){
+                if (cn.isFoundC()) {
                     cn.Insertar(nombre, campus_id, estatus);
                     JOptionPane.showMessageDialog(null, "Alumno Registrado Correctamente!");
                     txtNombre.setText("");
-                    txtCampus_ID.setText("");                
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Campus no encontrado");        
+                    txtCampus_ID.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Campus no encontrado");
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//Boton Aceptar

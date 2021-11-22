@@ -1,8 +1,10 @@
 package sistema_alumnos;
+
 import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class Sistema_Alumnos {
+
     ResultSet rs;
     Connection cn = MyConnection.getConnection();
     boolean foundA = false;
@@ -11,7 +13,7 @@ public class Sistema_Alumnos {
     int campus_id = 0;
     int estatus = 0;
     public static AlumnosUI princ = new AlumnosUI();
-    
+
     public static void main(String[] args) {
         //LoginUI Login = new LoginUI();
         //Login.setVisible(true);
@@ -79,7 +81,7 @@ public class Sistema_Alumnos {
         }
         princ.CrearTabla();
     }
-    
+
     public void BuscarA(int id) {
         try {
             PreparedStatement pst = cn.prepareStatement("select * from Alumnos where id = ?");
@@ -99,7 +101,7 @@ public class Sistema_Alumnos {
         }
         princ.CrearTabla();
     }
-    
+
     public void BuscarC(int id) {
         String nombre = "";
         int campus_id = 0;
@@ -122,6 +124,7 @@ public class Sistema_Alumnos {
         }
         princ.CrearTabla();
     }
+
     public String getNombre() {
         return nombre;
     }

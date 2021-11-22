@@ -1,13 +1,12 @@
-
 package menu_items;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import sistema_alumnos.Sistema_Alumnos;
+import sistema_alumnos.*;
 
 public class Alumno_Modificar extends javax.swing.JFrame {
-    
+
     Sistema_Alumnos cn = new Sistema_Alumnos();
 
     public Alumno_Modificar() {
@@ -144,23 +143,20 @@ public class Alumno_Modificar extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String id = txtID_Alumno.getText().trim();
-        if (id.equals("")){
-                JOptionPane.showMessageDialog(null, "Escribe un ID");
-        }
-        else{
+        if (id.equals("")) {
+            JOptionPane.showMessageDialog(null, "Escribe un ID");
+        } else {
             int id_alumno = Integer.parseInt(id);
             cn.BuscarA(id_alumno);
-            if(cn.isFoundA()){
+            if (cn.isFoundA()) {
                 txtNombre.setText(cn.getNombre());
                 txtCampus_ID.setText(String.valueOf(cn.getCampus_id()));
-                if (cn.getEstatus() == 1){
+                if (cn.getEstatus() == 1) {
                     txtEstatus.setSelectedIndex(0);
-                }
-                else{
+                } else {
                     txtEstatus.setSelectedIndex(1);
                 }
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Alumno no Encontrado");
             }
         }
@@ -173,44 +169,41 @@ public class Alumno_Modificar extends javax.swing.JFrame {
     }//Boton Cerrar                               
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-        try{
+        try {
             String id = txtID_Alumno.getText().trim();
             String nombre = txtNombre.getText().trim();
             String txtCampus = txtCampus_ID.getText().trim();
-            if (id.equals("") || nombre.equals("") || txtCampus.equals("")){
+            if (id.equals("") || nombre.equals("") || txtCampus.equals("")) {
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
-            }
-            else{
+            } else {
                 int id_alumno = Integer.parseInt(id);
                 int campus_id = Integer.parseInt(txtCampus);
                 cn.BuscarC(campus_id);
 
                 int estatus = 0;
-                if (txtEstatus.getSelectedItem() == "Activo"){
+                if (txtEstatus.getSelectedItem() == "Activo") {
                     estatus = 1;
-                }
-                else{
+                } else {
                     estatus = 0;
                 }
-                if (cn.isFoundA() && cn.isFoundC()){
-                    cn.Modificar(id_alumno, nombre, campus_id, estatus);   
-                    JOptionPane.showMessageDialog(null, "Alumno Modificado Correctamente!");                
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Alumno o campus no encontrados");        
+                if (cn.isFoundA() && cn.isFoundC()) {
+                    cn.Modificar(id_alumno, nombre, campus_id, estatus);
+                    JOptionPane.showMessageDialog(null, "Alumno Modificado Correctamente!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Alumno o campus no encontrados");
                 }
                 txtID_Alumno.setText("");
                 txtNombre.setText("");
                 txtCampus_ID.setText("");
                 txtEstatus.setSelectedIndex(0);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//Boton Aceptar
 
     public static void main(String args[]) {
- 
+
         //Look and feel - No Modificar
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {

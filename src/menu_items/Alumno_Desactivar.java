@@ -1,17 +1,16 @@
-
 package menu_items;
 
 import javax.swing.JOptionPane;
-import sistema_alumnos.Sistema_Alumnos;
+import sistema_alumnos.*;
 
 public class Alumno_Desactivar extends javax.swing.JFrame {
-    
+
     Sistema_Alumnos cn = new Sistema_Alumnos();
 
     public Alumno_Desactivar() {
         initComponents();
     }
-    
+
     //Inicializar Componentes - No Modificar
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,23 +145,20 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String id = txtID_Alumno.getText().trim();
-        if (id.equals("")){
-                JOptionPane.showMessageDialog(null, "Escribe un ID");
-        }
-        else{
+        if (id.equals("")) {
+            JOptionPane.showMessageDialog(null, "Escribe un ID");
+        } else {
             int id_alumno = Integer.parseInt(id);
             cn.BuscarA(id_alumno);
-            if(cn.isFoundA()){
+            if (cn.isFoundA()) {
                 txtNombre.setText(cn.getNombre());
                 txtCampus_ID.setText(String.valueOf(cn.getCampus_id()));
-                if (cn.getEstatus() == 1){
+                if (cn.getEstatus() == 1) {
                     txtEstatus.setSelectedIndex(0);
-                }
-                else{
+                } else {
                     txtEstatus.setSelectedIndex(1);
                 }
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Alumno no Encontrado");
             }
         }
@@ -174,31 +170,29 @@ public class Alumno_Desactivar extends javax.swing.JFrame {
     }
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-        try{
+        try {
             String id = txtID_Alumno.getText().trim();
-            if (id.equals("")){
+            if (id.equals("")) {
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
-            }
-            else{
+            } else {
                 int id_alumno = Integer.parseInt(id);
                 Sistema_Alumnos cn = new Sistema_Alumnos();
                 cn.BuscarA(id_alumno);
-                if (cn.isFoundA()){
-                    cn.Desactivar(id_alumno);   
+                if (cn.isFoundA()) {
+                    cn.Desactivar(id_alumno);
                     JOptionPane.showMessageDialog(null, "Alumno Desactivado Correctamente!");
                     txtID_Alumno.setText("");
                     txtNombre.setText("");
-                    txtCampus_ID.setText("");                
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Alumno no encontrado");        
+                    txtCampus_ID.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Alumno no encontrado");
                 }
             }
             txtID_Alumno.setText("");
             txtNombre.setText("");
             txtCampus_ID.setText("");
             txtEstatus.setSelectedIndex(0);
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }

@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class MyConnection {
+
     //LoginUI Login = new LoginUI();
     //String user = Login.getUser();
     //String password = Login.getPassword();
@@ -25,18 +26,23 @@ public class MyConnection {
             User = Buffer.readLine();
             Password = Buffer.readLine();
             File.close();
-        }catch(IOException MM) {
+        } catch (IOException MM) {
             //System.out.println("Error: "+MM.getMessage());
         }
+        /*
+        String connectionUrl = "jdbc:mysql://sql3.freesqldatabase.com:3306/sql3452769";
+        User = "sql3452769";
+        Password = "3J6tDwDQ1S";
+         */
         String connectionUrl = "jdbc:sqlserver://localhost:1433;"
-        + "database=bdSistema;"
-        + "user=" + User +";"
-        + "password=" + Password +";"
-        + "loginTimeout=30;";
+                + "database=bdSistema;"
+                + "user=" + User + ";"
+                + "password=" + Password + ";"
+                + "loginTimeout=30;";
         try {
             Connection cn = DriverManager.getConnection(connectionUrl);
             return cn;
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
         }

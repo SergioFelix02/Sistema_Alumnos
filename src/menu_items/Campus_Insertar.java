@@ -1,4 +1,3 @@
-
 package menu_items;
 
 import javax.swing.JOptionPane;
@@ -9,7 +8,7 @@ public class Campus_Insertar extends javax.swing.JFrame {
     public Campus_Insertar() {
         initComponents();
     }
-    
+
     //Inicializar Componentes - No Modificar
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -82,30 +81,27 @@ public class Campus_Insertar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //Fin Inicializar Componentes
-    
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
- 
     }//Boton Cerrar
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-           try{
+        try {
             String nombre = txtNombre.getText().trim();
-            if (nombre.equals("")){
+            if (nombre.equals("")) {
                 JOptionPane.showMessageDialog(null, "Llena todos los campos");
-            }
-            else{
+            } else {
                 Sistema_Alumnos cn = new Sistema_Alumnos();
-                JOptionPane.showMessageDialog(null, "Campus Registrado Correctamente!");           
-                cn.InsertarC(nombre);   
+                JOptionPane.showMessageDialog(null, "Campus Registrado Correctamente!");
+                cn.InsertarC(nombre);
                 txtNombre.setText("");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//Boton Aceptar
-    
+
     //Main
     public static void main(String args[]) {
 
