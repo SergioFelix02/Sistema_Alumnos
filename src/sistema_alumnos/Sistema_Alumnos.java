@@ -13,7 +13,7 @@ public class Sistema_Alumnos {
     int campus_id = 0;
     int estatus = 0;
     public static AlumnosUI princ = new AlumnosUI();
-
+    // Test Git Sergio
     public static void main(String[] args) {
         //LoginUI Login = new LoginUI();
         //Login.setVisible(true);
