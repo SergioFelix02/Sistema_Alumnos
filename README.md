@@ -1,6 +1,6 @@
 # Sistema Alumnos
 
-CRUD de alumnos y asignaturas realizado para la asignatura de Bases de Datos I
+CRUD de alumnos realizado para la asignatura de Bases de Datos I
 
 <h3>Hecho Por</h3>
 Sergio Felix<br>
